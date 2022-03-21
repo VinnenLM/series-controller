@@ -19,15 +19,46 @@
     <ul class="list-group">
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{$serie->nome}}
-                <form action="/series/{{$serie->id}}" method="post">
-                    <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info"><i class="bi bi-box-arrow-up-right"></i></a>
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                </form>
+                <span id="serie-{{$serie->id}}">{{$serie->nome}}</span>
+
+                <div class="input-group w-50" hidden id="input-serie-{{ $serie->id }}">
+                    <input type="text" class="form-control" value="{{ $serie->nome }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="editar-serie" onclick="editarSerie({{ $serie->id }})">
+                            <i class="bi bi-check2"></i>
+                        </button>
+                        @csrf
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <button class="btn btn-success mr-1" onclick="mostrarInput({{$serie->id}})"><i
+                            class="bi bi-pencil-square"></i></button>
+                    <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info mr-1"><i
+                            class="bi bi-box-arrow-up-right"></i></a>
+                    <form action="/series/{{$serie->id}}" method="post">
+
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                    </form>
+                </div>
             </li>
         @endforeach
     </ul>
+
+    <script>
+        function mostrarInput(serieId) {
+            var inputSerie = $(`#input-serie-${serieId}`);
+            var nomeSerie = $(`#serie-${serieId}`);
+            if (inputSerie.attr('hidden')) {
+                inputSerie.removeAttr('hidden');
+                nomeSerie.attr('hidden', true);
+            } else {
+                inputSerie.attr('hidden', true);
+                nomeSerie.removeAttr('hidden');
+            }
+        }
+    </script>
 
 @endsection
