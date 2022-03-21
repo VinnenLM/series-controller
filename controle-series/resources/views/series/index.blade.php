@@ -22,7 +22,7 @@
                 <span id="serie-{{$serie->id}}">{{$serie->nome}}</span>
 
                 <div class="input-group w-50" hidden id="input-serie-{{ $serie->id }}">
-                    <input type="text" class="form-control" value="{{ $serie->nome }}">
+                    <input id="input-id" type="text" class="form-control" value="{{ $serie->nome }}">
                     <div class="input-group-append">
                         <button class="btn btn-primary" id="editar-serie" onclick="editarSerie({{ $serie->id }})">
                             <i class="bi bi-check2"></i>
@@ -49,8 +49,8 @@
 
     <script>
         function mostrarInput(serieId) {
-            var inputSerie = $(`#input-serie-${serieId}`);
-            var nomeSerie = $(`#serie-${serieId}`);
+            let inputSerie = $(`#input-serie-${serieId}`);
+            let nomeSerie = $(`#serie-${serieId}`);
             if (inputSerie.attr('hidden')) {
                 inputSerie.removeAttr('hidden');
                 nomeSerie.attr('hidden', true);
@@ -58,6 +58,22 @@
                 inputSerie.attr('hidden', true);
                 nomeSerie.removeAttr('hidden');
             }
+        }
+
+        function editarSerie(serieId){
+            let formData = new FormData();
+            let nome = $('#input-id').val();
+            let token = $('input[name=_token]').val();
+            formData.append('nome', nome);
+            formData.append('_token', token);
+            let url = `/series/${serieId}/editarNome`;
+            fetch(url, {
+                body: formData,
+                method: 'POST'
+            }).then(() => {
+                mostrarInput(serieId);
+                $(`#serie-${serieId}`).val(nome);
+            });
         }
     </script>
 

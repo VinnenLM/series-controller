@@ -14,7 +14,7 @@ class SeriesController extends Controller
 {
     public function listarSeries(Request $request)
     {
-        $series = Serie::all();
+        $series = Serie::all()->sortBy('id');
         $mensagem = $request->session()->get('mensagem');
         return view('series/index', compact('series', 'mensagem'));
     }
@@ -37,5 +37,13 @@ class SeriesController extends Controller
         Serie::destroy($request->id);
         $request->session()->flash('mensagem', "Série $serieNome removida com sucesso!");
         return redirect('/series');
+    }
+
+    public function editarSerie(Request $request)
+    {
+        $novoNome = $request->nome;
+        $serie = Serie::find($request->id);
+        $serie->nome = $novoNome;
+        $serie->save();
     }
 }
