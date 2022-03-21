@@ -20,8 +20,8 @@
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{$serie->nome}}
-                <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info"><i class="bi bi-box-arrow-up-right"></i></a>
                 <form action="/series/{{$serie->id}}" method="post">
+                    <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info"><i class="bi bi-box-arrow-up-right"></i></a>
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>

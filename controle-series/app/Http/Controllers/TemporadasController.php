@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Serie;
 use App\Models\Temporada;
 use Illuminate\Http\Request;
 
 class TemporadasController extends Controller
 {
-    public function listarTemporadas(Request $request)
+    public function listarTemporadas(int $serieId)
     {
-        $temporadas = Temporada::all();
-        //$mensagem = $request->session()->get('mensagem');
-        return view('series/index'); //,compact('series', 'mensagem'));
+        $serie = Serie::find($serieId);
+        $temporadas = $serie->temporadas;
+        return view('temporadas/index', compact('serie', 'temporadas'));
     }
 }
