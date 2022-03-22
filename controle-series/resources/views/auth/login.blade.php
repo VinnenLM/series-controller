@@ -47,6 +47,8 @@
                     </a>
                 @endif
 
+                    <a href="/register" class="ml-2">Register</a>
+
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>

@@ -29,3 +29,9 @@ Route::get('/temporadas/{temporada_id}/episodios', [\App\Http\Controllers\Episod
 
 
 Route::post('/series/{id}/editarSerie', [\App\Http\Controllers\SeriesController::class, 'editarSerie']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
