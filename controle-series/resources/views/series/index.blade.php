@@ -21,15 +21,15 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <span id="serie-{{$serie->id}}">{{$serie->nome}}</span>
 
-                <div class="input-group w-50" hidden id="input-serie-{{ $serie->id }}">
-                    <input id="input-id" type="text" class="form-control" value="{{ $serie->nome }}">
+                <div class="input-group w-50" hidden id="input-{{ $serie->id }}">
+                    <input id="input-serie-{{ $serie->id }}" type="text" class="form-control" value="{{ $serie->nome }}">
                     <div class="input-group-append">
                         <button class="btn btn-primary" id="editar-serie" onclick="editarSerie({{ $serie->id }})">
                             <i class="bi bi-check2"></i>
                         </button>
-                        @csrf
                     </div>
                 </div>
+                @csrf
 
                 <div class="d-flex">
                     <button class="btn btn-success mr-1" onclick="mostrarInput({{$serie->id}})"><i
@@ -49,7 +49,7 @@
 
     <script>
         function mostrarInput(serieId) {
-            let inputSerie = $(`#input-serie-${serieId}`);
+            let inputSerie = $(`#input-${serieId}`);
             let nomeSerie = $(`#serie-${serieId}`);
             if (inputSerie.attr('hidden')) {
                 inputSerie.removeAttr('hidden');
@@ -62,17 +62,17 @@
 
         function editarSerie(serieId){
             let formData = new FormData();
-            let nome = $('#input-id').val();
-            let token = $('input[name=_token]').val();
+            const nome = $(`#input-serie-${serieId}`).val();
+            const token = $('input[name=_token]').val();
             formData.append('nome', nome);
             formData.append('_token', token);
-            let url = `/series/${serieId}/editarNome`;
+            const url = `/series/${serieId}/editarSerie`;
             fetch(url, {
-                body: formData,
-                method: 'POST'
+                method: 'POST',
+                body: formData
             }).then(() => {
                 mostrarInput(serieId);
-                $(`#serie-${serieId}`).val(nome);
+                $(`#serie-${serieId}`).text(nome);
             });
         }
     </script>

@@ -28,4 +28,4 @@ Route::get('/series/{serie_id}/temporadas', [\App\Http\Controllers\TemporadasCon
 Route::get('/series/{serie_id}/temporadas/{temporada_id}/episodios', [\App\Http\Controllers\EpisodiosController::class, 'listarEpisodios']);
 
 
-Route::post('/series/{id}/editarNome', [\App\Http\Controllers\SeriesController::class, 'editarSerie']);
+Route::post('/series/{id}/editarSerie', [\App\Http\Controllers\SeriesController::class, 'editarSerie']);
