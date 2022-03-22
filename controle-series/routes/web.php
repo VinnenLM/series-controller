@@ -25,7 +25,8 @@ Route::delete('/series/{id}', [SeriesControllerAlias::class, 'excluirSeries']);
 
 Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
 
-Route::get('/temporadas/{temporada_id}/episodios', [EpisodiosController::class, 'listarEpisodios']);
+Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios']);
+Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
