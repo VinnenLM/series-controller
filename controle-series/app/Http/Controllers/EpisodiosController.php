@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 
 class EpisodiosController extends Controller
 {
-    public function listarEpisodios(Temporada $temporada)
+    public function listarEpisodios(Temporada $temporada, Request $request)
     {
         $episodios = $temporada->episodios->sortBy('id');
         $temporadaId = $temporada->id;
-        return view('episodios/index', compact(  'episodios', 'temporadaId'));
+        $mensagem = $request->session()->get('mensagem');
+        return view('episodios/index', compact(  'episodios', 'temporadaId', 'mensagem'));
     }
 
     public function assistidos(Temporada $temporada, Request $request)
@@ -29,6 +30,7 @@ class EpisodiosController extends Controller
         });
 
         $temporada->push();
+        $request->session()->flash('mensagem', 'Episódios marcados com sucesso!');
 
         return redirect()->back();
 
