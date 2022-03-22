@@ -15,7 +15,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between mb-4">
         <a class="navbar-brand" href="/series">Home</a>
-        <a class="navbar-brand" href="#">Login</a>
+        <a class="navbar-brand" href="/login">Login</a>
     </nav>
 </header>
 

@@ -112,6 +112,7 @@
       <excludeFolder url="file://$MODULE_DIR$/controle-series/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/controle-series/vendor/phpspec/prophecy" />
       <excludeFolder url="file://$MODULE_DIR$/controle-series/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/controle-series/vendor/laravel/breeze" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

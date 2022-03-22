@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('episodios', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->boolean('assistido')->default(false);
             $table->integer('temporada_id');
             $table->foreign('temporada_id')->references('id')->on('temporadas');
             //$table->timestamps();
