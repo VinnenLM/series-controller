@@ -25,7 +25,7 @@ Route::delete('/series/{id}', [\App\Http\Controllers\SeriesController::class, 'e
 
 Route::get('/series/{serie_id}/temporadas', [\App\Http\Controllers\TemporadasController::class, 'listarTemporadas']);
 
-Route::get('/series/{serie_id}/temporadas/{temporada_id}/episodios', [\App\Http\Controllers\EpisodiosController::class, 'listarEpisodios']);
+Route::get('/temporadas/{temporada_id}/episodios', [\App\Http\Controllers\EpisodiosController::class, 'listarEpisodios']);
 
 
 Route::post('/series/{id}/editarSerie', [\App\Http\Controllers\SeriesController::class, 'editarSerie']);
