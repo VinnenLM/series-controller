@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EpisodiosController;
+use App\Http\Controllers\SeriesController as SeriesControllerAlias;
+use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+Route::get('/', [SeriesControllerAlias::class, 'listarSeries']);
+Route::get('/series', [SeriesControllerAlias::class, 'listarSeries']);
+Route::get('/series/adicionar', [SeriesControllerAlias::class, 'criarSeries']);
+Route::post('/series/adicionar', [SeriesControllerAlias::class, 'salvarSeries']);
+Route::post('/series/{id}/editarSerie', [SeriesControllerAlias::class, 'editarSerie']);
+Route::delete('/series/{id}', [SeriesControllerAlias::class, 'excluirSeries']);
 
-Route::get('/', [\App\Http\Controllers\SeriesController::class, 'listarSeries']);
-Route::get('/series', [\App\Http\Controllers\SeriesController::class, 'listarSeries']);
-Route::get('/series/adicionar', [\App\Http\Controllers\SeriesController::class, 'criarSeries']);
-Route::post('/series/adicionar', [\App\Http\Controllers\SeriesController::class, 'salvarSeries']);
-Route::delete('/series/{id}', [\App\Http\Controllers\SeriesController::class, 'excluirSeries']);
+Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
 
-Route::get('/series/{serie_id}/temporadas', [\App\Http\Controllers\TemporadasController::class, 'listarTemporadas']);
-
-Route::get('/temporadas/{temporada_id}/episodios', [\App\Http\Controllers\EpisodiosController::class, 'listarEpisodios']);
-
-
-Route::post('/series/{id}/editarSerie', [\App\Http\Controllers\SeriesController::class, 'editarSerie']);
+Route::get('/temporadas/{temporada_id}/episodios', [EpisodiosController::class, 'listarEpisodios']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
