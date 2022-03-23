@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EpisodiosController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SeriesController as SeriesControllerAlias;
 use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
@@ -16,20 +17,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SeriesControllerAlias::class, 'listarSeries']);
-Route::get('/series', [SeriesControllerAlias::class, 'listarSeries']);
-Route::get('/series/adicionar', [SeriesControllerAlias::class, 'criarSeries']);
-Route::post('/series/adicionar', [SeriesControllerAlias::class, 'salvarSeries']);
-Route::post('/series/{id}/editarSerie', [SeriesControllerAlias::class, 'editarSerie']);
-Route::delete('/series/{id}', [SeriesControllerAlias::class, 'excluirSeries']);
+Route::get('/', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
+Route::get('/series', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
+Route::get('/series/adicionar', [SeriesControllerAlias::class, 'criarSeries'])->middleware(['auth']);
+Route::post('/series/adicionar', [SeriesControllerAlias::class, 'salvarSeries'])->middleware(['auth']);
+Route::post('/series/{id}/editarSerie', [SeriesControllerAlias::class, 'editarSerie'])->middleware(['auth']);
+Route::delete('/series/{id}', [SeriesControllerAlias::class, 'excluirSeries'])->middleware(['auth']);
 
-Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
+Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas'])->middleware(['auth']);
 
-Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios']);
-Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos']);
+Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios'])->middleware(['auth']);
+Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos'])->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/entrar', [LoginController::class, 'entrar']);
+Route::post('/entrar', [LoginController::class, 'logar']);
+
+Route::get('/registrar', [\App\Http\Controllers\RegistroController::class, 'registrar']);
+Route::post('/registrar', 'RegistroController@store');
 
 require __DIR__ . '/auth.php';
