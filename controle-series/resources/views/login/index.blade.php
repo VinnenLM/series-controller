@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-    Entrar
+    <h1 class="text-center">Entrar</h1>
 @endsection
 
 @section('conteudo')
