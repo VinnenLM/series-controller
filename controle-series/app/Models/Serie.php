@@ -12,6 +12,11 @@ class Serie extends Model
 
     protected $fillable = ['nome'];
 
+    public function usuario()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function temporadas()
     {
         return $this->hasMany(Temporada::class);

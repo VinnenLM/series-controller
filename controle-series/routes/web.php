@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EpisodiosController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SeriesController as SeriesControllerAlias;
 use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
+//Route::get('/', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
+Route::get('/', [LoginController::class, 'entrar']);
+
+Route::get('/sair', function () {
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/entrar');
+});
+
 Route::get('/series', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
 Route::get('/series/adicionar', [SeriesControllerAlias::class, 'criarSeries'])->middleware(['auth']);
 Route::post('/series/adicionar', [SeriesControllerAlias::class, 'salvarSeries'])->middleware(['auth']);
@@ -36,7 +44,7 @@ Route::get('/dashboard', function () {
 Route::get('/entrar', [LoginController::class, 'entrar']);
 Route::post('/entrar', [LoginController::class, 'logar']);
 
-Route::get('/registrar', [\App\Http\Controllers\RegistroController::class, 'registrar']);
-Route::post('/registrar', 'RegistroController@store');
+Route::get('/registrar', [RegistroController::class, 'registrar']);
+Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
 
 require __DIR__ . '/auth.php';

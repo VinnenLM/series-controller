@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegistroController extends Controller
 {
@@ -19,6 +21,6 @@ class RegistroController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('listar_series');
+        return redirect('/series');
     }
 }
