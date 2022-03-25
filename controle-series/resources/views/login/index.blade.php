@@ -1,7 +1,11 @@
 @extends('layout')
 
+@section('link-css')
+    <link rel="stylesheet" href="public/css/">
+@endsection
+
 @section('cabecalho')
-    <h1 class="text-center">Entrar</h1>
+    <h1 class="titulo">Entrar</h1>
 @endsection
 
 @section('conteudo')
