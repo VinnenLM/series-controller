@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\Serie;
 use App\Models\Temporada;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CriadorDeSerie
@@ -12,7 +14,7 @@ class CriadorDeSerie
     {
         //DB::transaction(function () use ($nomeSerie, $qtdTemporadas, $qtdEpisodios, &$serie){
         DB::beginTransaction();
-        $serie = Serie::create(['nome' => $nomeSerie]);
+        $serie = Serie::create(['nome' => $nomeSerie, 'users_id' => Auth::id()]);
         $this->criarTemporada($qtdTemporadas, $qtdEpisodios, $serie);
         DB::commit();
         //});

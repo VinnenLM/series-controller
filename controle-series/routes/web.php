@@ -19,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
-Route::get('/', [LoginController::class, 'entrar']);
+Route::get('/', function () {
+    if(\Illuminate\Support\Facades\Auth::check()){
+        return redirect('/series');
+    }else{
+        return redirect('/entrar');
+    }
+});
 
 Route::get('/sair', function () {
     \Illuminate\Support\Facades\Auth::logout();

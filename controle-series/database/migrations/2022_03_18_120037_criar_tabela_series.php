@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('series', function (Blueprint $table){
            $table->id();
            $table->string('nome');
-            $table->integer('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
            //$table->timestamps();
         });
     }

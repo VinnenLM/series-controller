@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegistroController extends Controller
@@ -17,7 +17,7 @@ class RegistroController extends Controller
     {
         $data = $request->except('_token');
         $data['password'] = Hash::make($data['password']);
-        $user = User::create($data);
+        $user = \App\Models\User::create($data);
 
         Auth::login($user);
 

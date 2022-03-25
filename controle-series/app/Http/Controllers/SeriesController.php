@@ -9,12 +9,14 @@ use App\Models\Temporada;
 use App\Services\CriadorDeSerie;
 use App\Services\RemovedorDeSerie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SeriesController extends Controller
 {
     public function listarSeries(Request $request)
     {
-        $series = Serie::all()->sortByDesc('id');
+
+        $series = Serie::all()->where('users_id', Auth::id());
         $mensagem = $request->session()->get('mensagem');
         return view('series/index', compact('series', 'mensagem'));
     }

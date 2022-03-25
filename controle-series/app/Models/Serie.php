@@ -10,7 +10,7 @@ class Serie extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome', 'users_id'];
 
     public function usuario()
     {
