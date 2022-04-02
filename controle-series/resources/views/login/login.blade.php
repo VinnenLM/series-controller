@@ -1,43 +1,54 @@
 @extends('layout')
 
-@section('link-css')
-    <link rel="stylesheet" href="public/css/">
-@endsection
+@push('styles')
+    <link href="{{ asset('css/style-login.css') }}" rel="stylesheet">
+@endpush
 
-@section('cabecalho')
-    <h1 class="titulo">Entrar</h1>
+@section('titulo')
+    Login
 @endsection
 
 @section('conteudo')
 
-    @if ($errors->any())
-        <div class="alert alert-danger align-items-center">
-            <ul class="mt-0 mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <h1>Login</h1>
 
-    <form method="post">
-        @csrf
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" required class="form-control">
-        </div>
+    <main class="container-principal">
 
-        <div class="form-group">
-            <label for="password">Senha</label>
-            <input type="password" name="password" id="password" required min="1" class="form-control">
-        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger align-items-center">
+                <ul class="mt-0 mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-        <button type="submit" class="btn btn-primary mt-3">
-            Entrar
-        </button>
+        <form method="post">
+            @csrf
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required class="form-control">
+            </div>
 
-        <a href="/registrar" class="btn btn-secondary mt-3">
-            Registrar-se
-        </a>
-    </form>
-@endsection
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" required min="1" class="form-control">
+            </div>
+
+            <div class="botoes">
+                <button type="submit" class="btn btn-primary mt-3">
+                    Entrar
+                </button>
+
+                <a href="/registrar" class="btn btn-dark mt-3">
+                    Registrar
+                </a>
+            </div>
+
+        </form>
+
+    </main>
+    @endsection
+    @extends('bootstrapJs')
+    </body>

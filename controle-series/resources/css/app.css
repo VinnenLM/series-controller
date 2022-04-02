@@ -1,3 +1,10 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import "layout-padrao.css";
+@import "style-criar-serie.css";
+@import "style-episodio.css";
+@import "style-listar-serie.css";
+@import "style-login.css";
+@import "style-registrar.css";
+@import "style-temporada.css";

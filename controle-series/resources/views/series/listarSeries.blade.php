@@ -1,24 +1,34 @@
 @extends('layout')
 
+@push('styles')
+    <link href="{{ asset('css/style-listar-series.css') }}" rel="stylesheet">
+@endpush
+
 @section('titulo')
     Controle de Séries
 @endsection
 
-@section('cabecalho')
-    Séries
-@endsection
+@extends('header')
 
 @section('conteudo')
+
+
 
     @if(!empty($mensagem))
         <div id="mensagem" class="alert alert-success">{{$mensagem}}</div>
     @endif
 
-    <a href="/series/adicionar" class="btn btn-dark mb-3" role="button">Adicionar</a>
+    <main class="container-principal">
 
-    <ul class="list-group">
+        <div class="jumbotron">
+            <h1>Listagem de Séries</h1>
+        </div>
+
+    <a id="adicionar" href="/series/adicionar" class="btn btn-primary" role="button">Adicionar</a>
+
+    <ul class="lista">
         @foreach ($series as $serie)
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <li class="item-lista">
                 <span id="serie-{{$serie->id}}">{{$serie->nome}}</span>
 
                 <div class="input-group w-50" hidden id="input-{{ $serie->id }}">
@@ -31,7 +41,7 @@
                 </div>
                 @csrf
 
-                <div class="d-flex">
+                <div class="botoes">
                     <button class="btn btn-success mr-1" onclick="mostrarInput({{$serie->id}})"><i
                             class="bi bi-pencil-square"></i></button>
                     <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info mr-1"><i
@@ -46,6 +56,8 @@
             </li>
         @endforeach
     </ul>
+
+    </main>
 
     <script>
         function mostrarInput(serieId) {
@@ -76,5 +88,6 @@
             });
         }
     </script>
+    @include('bootstrapJs')
 
 @endsection

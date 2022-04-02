@@ -18,7 +18,7 @@ class SeriesController extends Controller
 
         $series = Serie::all()->where('users_id', Auth::id());
         $mensagem = $request->session()->get('mensagem');
-        return view('series/index', compact('series', 'mensagem'));
+        return view('series/listarSeries', compact('series', 'mensagem'));
     }
 
     public function criarSeries()

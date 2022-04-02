@@ -3,7 +3,7 @@
 use App\Http\Controllers\EpisodiosController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
-use App\Http\Controllers\SeriesController as SeriesControllerAlias;
+use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +32,11 @@ Route::get('/sair', function () {
     return redirect('/entrar');
 });
 
-Route::get('/series', [SeriesControllerAlias::class, 'listarSeries'])->middleware(['auth']);
-Route::get('/series/adicionar', [SeriesControllerAlias::class, 'criarSeries'])->middleware(['auth']);
-Route::post('/series/adicionar', [SeriesControllerAlias::class, 'salvarSeries'])->middleware(['auth']);
-Route::post('/series/{id}/editarSerie', [SeriesControllerAlias::class, 'editarSerie'])->middleware(['auth']);
-Route::delete('/series/{id}', [SeriesControllerAlias::class, 'excluirSeries'])->middleware(['auth']);
+Route::get('/series', [SeriesController::class, 'listarSeries'])->middleware(['auth']);
+Route::get('/series/adicionar', [SeriesController::class, 'criarSeries'])->middleware(['auth']);
+Route::post('/series/adicionar', [SeriesController::class, 'salvarSeries'])->middleware(['auth']);
+Route::post('/series/{id}/editarSerie', [SeriesController::class, 'editarSerie'])->middleware(['auth']);
+Route::delete('/series/{id}', [SeriesController::class, 'excluirSeries'])->middleware(['auth']);
 
 Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas'])->middleware(['auth']);
 
