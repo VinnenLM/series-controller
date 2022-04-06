@@ -20,9 +20,7 @@
 
     <main class="container-principal">
 
-        <div class="jumbotron">
-            <h1>Listagem de Séries</h1>
-        </div>
+        <h1>Listagem de Séries</h1>
 
     <a id="adicionar" href="/series/adicionar" class="btn btn-primary" role="button">Adicionar</a>
 

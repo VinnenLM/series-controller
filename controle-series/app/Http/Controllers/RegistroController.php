@@ -10,7 +10,7 @@ class RegistroController extends Controller
 {
     public function registrar()
     {
-        return view('registrar/create');
+        return view('registrar/registrar');
     }
 
     public function criarRegistro(Request $request)

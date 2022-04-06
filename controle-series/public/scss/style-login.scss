@@ -1,5 +1,5 @@
 html, body {
-    background-color: #2d294c;
+    background-color: #eeeeee;
 }
 
 .container-principal {
@@ -16,6 +16,7 @@ main {
     right: 50%;
     transform: translate(50%, -50%);
     background-color: white;
+    border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
 }
@@ -26,7 +27,6 @@ h1 {
     right: 50%;
     transform: translate(50%, -10%);
     text-align: center;
-    color: #736ab3;
     font-size: 3rem;
 }
 

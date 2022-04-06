@@ -23,7 +23,7 @@ class SeriesController extends Controller
 
     public function criarSeries()
     {
-        return view('series/create');
+        return view('series/criarSerie');
     }
 
     public function salvarSeries(SeriesFormRequest $request, CriadorDeSerie $criadorDeSerie)
