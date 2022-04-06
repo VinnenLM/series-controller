@@ -5,14 +5,16 @@
 @endpush
 
 @section('titulo')
-    Controle de Séries
+    Criar de Série
 @endsection
 
-@section('cabecalho')
-    Adicionar Série
-@endsection
+@extends('header')
 
 @section('conteudo')
+
+    <h1>Criar Série</h1>
+
+    <main class="container-principal">
 
     @if ($errors->any())
         <div class="alert alert-danger align-items-center">
@@ -45,4 +47,6 @@
             <a href="/series" class="btn btn-primary" role="button">Voltar</a>
         </div>
     </form>
+
+    </main>
 @endsection

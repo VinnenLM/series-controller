@@ -10,7 +10,7 @@
 
 @section('conteudo')
 
-    <h1>Login</h1>
+    <h1>LOGIN</h1>
 
     <main class="container-principal">
 
@@ -37,11 +37,11 @@
             </div>
 
             <div class="botoes">
-                <button type="submit" class="btn btn-primary mt-3">
+                <button type="submit" class="btn btn-success mt-3">
                     Entrar
                 </button>
 
-                <a href="/registrar" class="btn btn-dark mt-3">
+                <a href="/registrar">
                     Registrar
                 </a>
             </div>
@@ -49,6 +49,7 @@
         </form>
 
     </main>
-    @endsection
-    @extends('bootstrapJs')
+
+
     </body>
+@endsection

@@ -14,7 +14,7 @@ class CriadorDeSerie
     {
         //DB::transaction(function () use ($nomeSerie, $qtdTemporadas, $qtdEpisodios, &$serie){
         DB::beginTransaction();
-        $serie = Serie::create(['nome' => $nomeSerie, 'users_id' => Auth::id()]);
+        $serie = Serie::create(['nome' => $nomeSerie, 'user_id' => Auth::id()]);
         $this->criarTemporada($qtdTemporadas, $qtdEpisodios, $serie);
         DB::commit();
         //});

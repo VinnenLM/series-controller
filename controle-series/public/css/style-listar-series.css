@@ -1,5 +1,10 @@
 html, body {
-  background-color: #eeeeee;
+  font-family: "Share Tech", sans-serif;
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433326_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  color: white;
 }
 
 .container-principal {
@@ -7,10 +12,21 @@ html, body {
   margin: 0 auto;
 }
 
-h1 {
+.titulo {
+  display: flex;
+  justify-content: center;
   text-align: center;
   font-size: 3rem;
-  padding: 10px;
+  padding: 5px 0 0 0;
+  width: 100%;
+}
+
+h1 {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-size: 50% auto;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 20px;
 }
 
 .jumbotron {
@@ -20,9 +36,9 @@ h1 {
 
 .lista {
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
-  padding: 0 5px;
-  background-color: white;
+  padding: 0;
   border-radius: 5px;
 }
 
@@ -32,8 +48,13 @@ h1 {
   align-items: center;
   border: 1px solid black;
   margin-top: 5px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.form-control {
+  padding: 0 0 0 5px;
 }
 
 .item-lista:last-child {

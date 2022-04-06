@@ -16,7 +16,7 @@ class SeriesController extends Controller
     public function listarSeries(Request $request)
     {
 
-        $series = Serie::all()->where('users_id', Auth::id());
+        $series = Serie::all()->where('user_id', Auth::id())->sortDesc();
         $mensagem = $request->session()->get('mensagem');
         return view('series/listarSeries', compact('series', 'mensagem'));
     }

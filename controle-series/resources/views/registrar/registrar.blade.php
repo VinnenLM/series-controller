@@ -10,7 +10,7 @@
 
 @section('conteudo')
 
-    <h1>Registrar-se</h1>
+    <h1>REGISTRAR</h1>
 
     <main class="container-principal">
 
@@ -31,7 +31,7 @@
                 <input type="password" name="password" id="password" required min="1" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">
+            <button type="submit" class="btn btn-success mt-3">
                 Salvar
             </button>
         </form>
