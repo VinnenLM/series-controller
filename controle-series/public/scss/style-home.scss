@@ -1,12 +1,13 @@
 html, body {
     font-family: 'Share Tech', sans-serif;
     background-image: url("https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433326_960_720.jpg");
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
     background-blend-mode: color;
-    height: 100vh;
     background-color: rgba(0,0,0,.5);
+    color: white;
 }
 
 .container-principal {
