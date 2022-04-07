@@ -19,7 +19,7 @@ main {
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0,0,0,.7);
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
@@ -54,11 +54,16 @@ label{
     margin-bottom: 10px;
 }
 
-a{
-    color: white;
-    text-decoration: underline ;
+span{
+    display: flex;
+    justify-content: center;
 }
 
+span>a{
+    margin-left: 10px;
+    color: rgba(200,200,200);
+    text-decoration: underline;
+}
 a:hover{
     color: orange;
 }

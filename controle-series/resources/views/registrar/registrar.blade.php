@@ -34,6 +34,8 @@
             <button type="submit" class="btn btn-success mt-3">
                 Salvar
             </button>
+
+            <span>Já Cadastrado?<a href="/entrar">Entrar</a></span>
         </form>
     </main>
 @endsection

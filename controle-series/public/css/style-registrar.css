@@ -19,7 +19,7 @@ main {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
@@ -51,8 +51,14 @@ label {
   margin-bottom: 10px;
 }
 
-a {
-  color: white;
+span {
+  display: flex;
+  justify-content: center;
+}
+
+span > a {
+  margin-left: 10px;
+  color: #c8c8c8;
   text-decoration: underline;
 }
 

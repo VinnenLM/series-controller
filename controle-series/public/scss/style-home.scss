@@ -1,13 +1,12 @@
 html, body {
     font-family: 'Share Tech', sans-serif;
     background-image: url("https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433326_960_720.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top;
     background-blend-mode: color;
+    height: 100vh;
     background-color: rgba(0,0,0,.5);
-    color: white;
 }
 
 .container-principal {
@@ -33,7 +32,7 @@ h1{
 }
 
 main {
-
+    color: white;
 }
 
 .lista{
@@ -43,6 +42,7 @@ main {
     padding: 0;
     //background-color: white;
     border-radius: 5px;
+    width: 100%;
 
 }
 
@@ -51,7 +51,7 @@ main {
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 10px;
     border-radius: 5px;
     background-color: rgba(0,0,0,.8);
@@ -65,21 +65,41 @@ main {
     margin-bottom: 5px;
 }
 
+.item-lista-lista{
+    display: none !important;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.3);
+}
+
+.visivel{
+    display: flex !important;
+    flex-direction: column;
+}
+
+li>a{
+    color: white !important;
+}
+
+a:hover{
+    color: orange !important;
+}
+
 label{
     font-size: 20px;
     font-weight: 400;
 }
 
-.botoes{
-    display: flex;
-    align-items: center;
+.btn-link{
+    color: white;
 }
 
-.botoes>form{
-    display: flex;
-    margin: 0;
-}
-
-#adicionar{
-    margin: 15px auto;
+.btn-link:hover{
+    color: orange;
 }

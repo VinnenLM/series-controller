@@ -53,4 +53,6 @@ Route::post('/entrar', [LoginController::class, 'logar']);
 Route::get('/registrar', [RegistroController::class, 'registrar']);
 Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
 
+Route::get('/home', [SeriesController::class, 'listarUsuarios']);
+
 require __DIR__ . '/auth.php';

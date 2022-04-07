@@ -8,9 +8,9 @@
     Controle de Séries
 @endsection
 
-@extends('header')
-
 @section('conteudo')
+
+    @include('header')
 
     <main class="container-principal">
 
@@ -22,7 +22,7 @@
             <div id="mensagem" class="alert alert-success">{{$mensagem}}</div>
         @endif
 
-        <a id="adicionar" href="/series/adicionar" class="btn btn-primary" role="button">Adicionar</a>
+        <a id="adicionar" href="/series/adicionar" class="btn btn-success" role="button">Adicionar</a>
 
         <ul class="lista">
             @foreach ($series as $serie)
@@ -87,6 +87,7 @@
             });
         }
     </script>
+
     @include('bootstrapJs')
 
 @endsection
