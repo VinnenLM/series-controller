@@ -27,6 +27,14 @@ Route::get('/', function () {
     }
 });
 
+Route::get('', function () {
+    if(\Illuminate\Support\Facades\Auth::check()){
+        return redirect('/series');
+    }else{
+        return redirect('/entrar');
+    }
+});
+
 Route::get('/sair', function () {
     \Illuminate\Support\Facades\Auth::logout();
     return redirect('/entrar');
