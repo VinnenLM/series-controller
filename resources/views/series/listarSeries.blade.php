@@ -27,7 +27,7 @@
         <ul class="lista">
             @foreach ($series as $serie)
                 <li class="item-lista">
-                    <a id="serie-{{$serie->id}}" href="/series/{{$serie->id}}/temporadas" class="btn btn-info mr-1">{{$serie->nome}}</a>
+                    <a id="serie-{{$serie->id}}" href="/series/{{$serie->id}}/temporadas">{{$serie->nome}}</a>
 
                     <div class="input-group w-50" hidden id="input-{{ $serie->id }}">
                         <input id="input-serie-{{ $serie->id }}" type="text" class="form-control"
