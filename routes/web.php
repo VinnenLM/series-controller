@@ -35,12 +35,16 @@ Route::get('/app', function () {
     }
 });
 
-Route::get('/login', function () {
+Route::get('/dashboard', function () {
     if(\Illuminate\Support\Facades\Auth::check()){
         return redirect('/series');
     }else{
         return redirect('/entrar');
     }
+});
+
+Route::get('/login', function () {
+        return redirect('/entrar');
 });
 
 Route::get('/sair', function () {
@@ -59,9 +63,7 @@ Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'lista
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios'])->middleware(['auth']);
 Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos'])->middleware(['auth']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 Route::get('/entrar', [LoginController::class, 'entrar']);
 Route::post('/entrar', [LoginController::class, 'logar']);
