@@ -27,7 +27,7 @@ Route::get('/', function () {
     }
 });
 
-Route::get('', function () {
+Route::get('/app', function () {
     if(\Illuminate\Support\Facades\Auth::check()){
         return redirect('/series');
     }else{
