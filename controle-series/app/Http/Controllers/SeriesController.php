@@ -46,6 +46,7 @@ class SeriesController extends Controller
         $novoNome = $request->nome;
         $serie = Serie::find($id);
         $serie->nome = $novoNome;
+        $request->session()->flash('mensagem', "Série $novoNome modificada com sucesso!");
         $serie->save();
     }
 

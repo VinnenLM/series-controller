@@ -12,6 +12,6 @@ class TemporadasController extends Controller
     {
         $serie = Serie::find($serieId);
         $temporadas = $serie->temporadas;
-        return view('temporadas/index', compact('serie', 'temporadas'));
+        return view('temporadas/listarTemporadas', compact('serie', 'temporadas'));
     }
 }

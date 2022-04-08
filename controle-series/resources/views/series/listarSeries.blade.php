@@ -49,7 +49,7 @@
 
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                            <button onclick="return confirm('Tem certeza?')" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                         </form>
                     </div>
                 </li>
@@ -57,6 +57,8 @@
         </ul>
 
     </main>
+
+    @include('bootstrapJs')
 
     <script>
         function mostrarInput(serieId) {
@@ -84,10 +86,9 @@
             }).then(() => {
                 mostrarInput(serieId);
                 $(`#serie-${serieId}`).text(nome);
+                location.reload();
             });
         }
     </script>
-
-    @include('bootstrapJs')
 
 @endsection

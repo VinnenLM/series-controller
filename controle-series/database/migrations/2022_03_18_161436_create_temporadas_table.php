@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('temporadas', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero');
+            $table->string('nome');
             $table->integer('serie_id');
             $table->foreign('serie_id')->references('id')->on('series');
             //$table->timestamps();

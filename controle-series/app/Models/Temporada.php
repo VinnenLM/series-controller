@@ -11,7 +11,7 @@ class Temporada extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['numero'];
+    protected $fillable = ['nome'];
 
     public function episodios()
     {

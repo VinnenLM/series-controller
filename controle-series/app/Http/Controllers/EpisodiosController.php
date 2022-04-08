@@ -13,8 +13,9 @@ class EpisodiosController extends Controller
     {
         $episodios = $temporada->episodios->sortBy('id');
         $temporadaId = $temporada->id;
+        $temporadaNome = $temporada->nome;
         $mensagem = $request->session()->get('mensagem');
-        return view('episodios/index', compact(  'episodios', 'temporadaId', 'mensagem'));
+        return view('episodios/listarEpisodios', compact(  'temporadaNome','episodios', 'temporadaId', 'mensagem'));
     }
 
     public function assistidos(Temporada $temporada, Request $request)
