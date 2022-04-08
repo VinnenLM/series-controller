@@ -17,13 +17,13 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/series">Home</a></li>
-                <li class="breadcrumb-item" aria-current="page">Temporadas</li>
+                <li class="breadcrumb-item"><a href="/series/{{$temporada->serie_id}}/temporadas">Temporadas</a></li>
                 <li class="breadcrumb-item ativo" aria-current="page">Episódios</li>
             </ol>
         </nav>
 
         <div class="titulo">
-            <h1>{{$temporadaNome}} - Episódios</h1>
+            <h1>{{$temporada->nome}} - Episódios</h1>
         </div>
 
         @if(!empty($mensagem))
@@ -32,7 +32,7 @@
             </div>
         @endif
 
-        <form action="/temporadas/{{ $temporadaId }}/episodios/assistidos" method="post">
+        <form action="/temporadas/{{ $temporada->id }}/episodios/assistidos" method="post">
             @csrf
             <ul class="lista">
                 @foreach ($episodios as $episodio)
