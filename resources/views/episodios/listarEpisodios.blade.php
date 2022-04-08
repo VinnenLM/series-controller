@@ -34,7 +34,7 @@
 
         <form action="/temporadas/{{ $temporada->id }}/episodios/assistidos" method="post">
             @csrf
-            <button class="btn btn-success mt-3">Salvar</button>
+            <button class="btn btn-success mb-3">Salvar</button>
 
             <ul class="lista">
                 @foreach ($episodios as $episodio)
