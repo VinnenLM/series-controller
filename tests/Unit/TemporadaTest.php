@@ -9,7 +9,7 @@ use Tests\TestCase;
 class TemporadaTest extends TestCase
 {
 
-    public function testVerificarEpisodiosAssistidos()
+    public function testVerificarTodosEpisodiosAssistidosTrue()
     {
         //instanciação das classes a serem utilizadas
         $temporada = new Temporada();
@@ -38,16 +38,8 @@ class TemporadaTest extends TestCase
         }
     }
 
+    public function testVerificarTodosEpisodiosAssistidosFalse(){
+        $this->assertTrue(true);
+    }
+
 }
-
-/*$episodio2 = new Episodio();
-$episodio1->assistido = true;
-$episodio3 = new Episodio();
-$episodio1->assistido = false;
-$temporada->episodios->add($episodio1);
-$temporada->episodios->add($episodio2);
-$temporada->episodios->add($episodio3);
-
-
-$episodiosAssistidos = $temporada->episodiosAssistidos();
-$this->assertCount(2, $episodiosAssistidos);*/
