@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/bd_laravel</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="BancoHeroku" uuid="b2239683-eaeb-490b-8ba2-1209b6afc5a9">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-34-192-210-139.compute-1.amazonaws.com:5432/d3pdkkd6shc7i0</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

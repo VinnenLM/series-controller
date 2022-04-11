@@ -5,7 +5,7 @@
             <a class="text-danger mr-5" href="/sair">Sair</a>
         @endauth
         @guest()
-            <a class="text-base mr-5" href="/entrar">Entrar</a>
+            <a class="text-dark mr-5" href="/entrar">Entrar</a>
         @endguest
     </nav>
 </header>

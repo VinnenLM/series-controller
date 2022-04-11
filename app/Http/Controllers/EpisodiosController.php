@@ -11,9 +11,11 @@ class EpisodiosController extends Controller
 {
     public function listarEpisodios(Temporada $temporada, Request $request)
     {
+        $serie = Serie::find($temporada->serie_id);
+        $userId = $serie->user_id;
         $episodios = $temporada->episodios->sortBy('id');
         $mensagem = $request->session()->get('mensagem');
-        return view('episodios/listarEpisodios', compact(  'temporada','episodios', 'mensagem'));
+        return view('episodios/listarEpisodios', compact(  'userId', 'temporada','episodios', 'mensagem'));
     }
 
     public function assistidos(Temporada $temporada, Request $request)

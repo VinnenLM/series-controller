@@ -1,7 +1,7 @@
 @extends('layout')
 
 @push('styles')
-    <link href="{{ secure_asset('css/style-episodio.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-episodio.css') }}" rel="stylesheet">
 @endpush
 
 @section('titulo')
@@ -34,14 +34,19 @@
 
         <form action="/temporadas/{{ $temporada->id }}/episodios/assistidos" method="post">
             @csrf
+
+            @if($userId == \Illuminate\Support\Facades\Auth::id())
             <button class="btn btn-success mb-3">Salvar</button>
+            @endif
 
             <ul class="lista">
                 @foreach ($episodios as $episodio)
                     <li class="item-lista">
                         <span class="ml-3">{{$episodio->nome}}</span>
+                        @if($userId == \Illuminate\Support\Facades\Auth::id())
                         <input class="mr-3" type="checkbox" name="episodios[]"
                                value="{{ $episodio->id }}" {{$episodio->assistido ? 'checked' : ''}}>
+                        @endif
                     </li>
                 @endforeach
             </ul>
