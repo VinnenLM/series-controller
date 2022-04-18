@@ -6,13 +6,14 @@ use App\Models\Episodio;
 use App\Models\Temporada;
 use Tests\TestCase;
 
-class TemporadaTest extends TestCase
+class SeriesTest extends TestCase
 {
 
     public function testVerificarTodosEpisodiosAssistidosTrue()
     {
         //instanciação das classes a serem utilizadas
         $temporada = new Temporada();
+        $this->assertInstanceOf(Temporada::class, $temporada);
         $episodio1 = new Episodio();
         $episodio2 = new Episodio();
         $episodio3 = new Episodio();

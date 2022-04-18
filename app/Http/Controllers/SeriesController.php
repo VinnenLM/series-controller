@@ -29,7 +29,7 @@ class SeriesController extends Controller
 
     public function salvarSeries(SeriesFormRequest $request, CriadorDeSerie $criadorDeSerie)
     {
-        $serie = $criadorDeSerie->criarSerie($request->nome, $request->qtd_temporadas, $request->qtd_episodios);
+        $serie = $criadorDeSerie->criarSerie($request->nome, $request->qtd_temporadas, $request->qtd_episodios, Auth::id());
         $request->session()->flash('mensagem', "Série {$serie->nome} criada com sucesso!");
         return redirect('/series');
     }
