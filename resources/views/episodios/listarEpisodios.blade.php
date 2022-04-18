@@ -1,7 +1,7 @@
 @extends('layout')
 
 @push('styles')
-    <link href="{{ secure_asset('css/style-episodio.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-episodio.css') }}" rel="stylesheet">
 @endpush
 
 @section('titulo')
