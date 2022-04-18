@@ -1,7 +1,7 @@
 @extends('layout')
 
 @push('styles')
-    <link href="{{ asset('css/style-listar-series.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/style-listar-series.css') }}" rel="stylesheet">
 @endpush
 
 @section('titulo')
