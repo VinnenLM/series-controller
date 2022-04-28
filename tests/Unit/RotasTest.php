@@ -48,14 +48,18 @@ class RotasTest extends TestCase
 
     public function testVerificarRotaSeries()
     {
-        $response = $this->get('/entrar');
+        $response = $this->get('/series');
 
-        $response->assertStatus(200);
+        if(\Illuminate\Support\Facades\Auth::check()){
+            $response->assertRedirect('/series');
+        }else{
+            $response->assertRedirect('/entrar');
+        }
     }
 
     public function testVerificarRotaTemporadas()
     {
-        $response = $this->get('/entrar');
+        $response = $this->get('/series/id/temporadas');
 
         $response->assertStatus(200);
     }
