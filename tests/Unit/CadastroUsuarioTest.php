@@ -36,7 +36,7 @@ class CadastroUsuarioTest extends TestCase
         $this->assertGuest();
     }
 
-    public function testVerificarRegristroUsuario()
+    public function testVerificarRegistroUsuario()
     {
         $response = $this->post('/registrar', [
             'name' => 'Usuario Teste',
@@ -48,5 +48,4 @@ class CadastroUsuarioTest extends TestCase
         $this->assertAuthenticated();
         $response->assertRedirect('/series');
     }
-
 }

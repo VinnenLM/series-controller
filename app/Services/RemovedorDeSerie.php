@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class RemovedorDeSerie
 {
-    public function removerSerie(int $serieId): string
+    public function removerSerie(int $serieId): string|bool
     {
+        if($serieId <= 0){
+            return false;
+        }
+
         DB::transaction(function () use ($serieId, &$serieNome){
             $serie = Serie::find($serieId);
             $serieNome = $serie->nome;

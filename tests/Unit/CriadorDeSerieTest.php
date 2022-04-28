@@ -33,4 +33,19 @@ class CriadorDeSerieTest extends TestCase
         $this->assertDatabaseHas('temporadas', ['serie_id' => $serieCriada->id]);
         $this->assertDatabaseHas('episodios', ['nome' => 'Episódio 1']);
     }
+
+    public function testoCriarSerieErro()
+    {
+        $user = User::factory()->create();
+        $this->assertInstanceOf(User::class, $user);
+        $criadorDeSerie = new CriadorDeSerie();
+        $this->assertInstanceOf(CriadorDeSerie::class, $criadorDeSerie);
+
+        $serieNome = '';
+        $quantidadeTemporadas = 1;
+        $quantidadeEpisodios = 1;
+
+        $serieCriada = $criadorDeSerie->criarSerie($serieNome, $quantidadeTemporadas, $quantidadeEpisodios, $user->id);
+        $this->assertFalse($serieCriada);
+    }
 }

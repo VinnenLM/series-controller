@@ -30,19 +30,6 @@ class RotasTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testVerificarRotaEntrarPost()
-    {
-        $user = User::factory()->create();
-
-        $response = $this->post('/entrar', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $this->assertAuthenticated();
-        $response->assertRedirect('/series');
-    }
-
     public function testVerificarRotaSair()
     {
         $response = $this->get('/sair');
@@ -58,18 +45,6 @@ class RotasTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testVerificarRotaRegistrarPost()
-    {
-        $response = $this->post('/registrar', [
-            'name' => 'Usuario Teste',
-            'email' => 'teste@teste.com',
-            'password' => '123',
-            'password_confirmation' => '123',
-        ]);
-
-        $this->assertAuthenticated();
-        $response->assertRedirect('/series');
-    }
 
     public function testVerificarRotaSeries()
     {

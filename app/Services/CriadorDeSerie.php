@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class CriadorDeSerie
 {
-    public function criarSerie(string $nomeSerie, int $qtdTemporadas, int $qtdEpisodios, int $userId): Serie
+    public function criarSerie(string $nomeSerie, int $qtdTemporadas, int $qtdEpisodios, int $userId): Serie|bool
     {
         //DB::transaction(function () use ($nomeSerie, $qtdTemporadas, $qtdEpisodios, &$serie){
+        if($nomeSerie == null || $qtdTemporadas <= 0 || $qtdEpisodios <= 0 || $userId <= 0){
+            return false;
+        }
         DB::beginTransaction();
         $serie = Serie::create(['nome' => $nomeSerie, 'user_id' => $userId]);
         $this->criarTemporada($qtdTemporadas, $qtdEpisodios, $serie);

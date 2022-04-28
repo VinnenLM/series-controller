@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Serie;
 use App\Models\User;
 use App\Services\CriadorDeSerie;
 use App\Services\RemovedorDeSerie;
@@ -12,24 +13,25 @@ class RemovedorDeSerieTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $serie;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $user = User::factory()->create();
-        $criadorDeSerie = new CriadorDeSerie();
-        $this->serie = $criadorDeSerie->criarSerie('Uma Série Ae', 1, 1, $user->id);
-    }
-
     public function testRemoverUmaSerie()
     {
-        $this->assertDatabaseHas('series', ['id' => $this->serie->id]);
+        $user = User::factory()->create();
+        $criadorDeSerie = new CriadorDeSerie();
+        $serie = $criadorDeSerie->criarSerie('Uma Série Ae', 1, 1, $user->id);
+        $this->assertInstanceOf(Serie::class, $serie);
+        $this->assertDatabaseHas('series', ['id' => $serie->id]);
         $removedorDeSerie = new RemovedorDeSerie();
-        $nomeSerie = $removedorDeSerie->removerSerie($this->serie->id);
+        $nomeSerie = $removedorDeSerie->removerSerie($serie->id);
         $this->assertIsString($nomeSerie);
-        $this->assertEquals('Uma Série Ae',  $this->serie->nome);
-        $this->assertDatabaseMissing('series', ['id' => $this->serie->id]);
+        $this->assertEquals('Uma Série Ae',  $serie->nome);
+        $this->assertDatabaseMissing('series', ['id' => $serie->id]);
+    }
+
+    public function testRemoverUmaSerieErro()
+    {
+        $removedorDeSerie = new RemovedorDeSerie();
+        $serie = $removedorDeSerie->removerSerie(0);
+        $this->assertFalse($serie);
     }
 
 }
