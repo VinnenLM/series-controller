@@ -22,7 +22,7 @@
         </nav>
 
         <div class="titulo">
-            <h1>Adicionar Série Teste</h1>
+            <h1>Adicionar Série</h1>
         </div>
 
         @if ($errors->any())
